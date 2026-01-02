@@ -61,7 +61,7 @@ function App() {
   const fetchBirthdays = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/birthdays');
+      const response = await axios.get('https://birthdayflutter-backend.onrender.com/api/birthdays');
       setBirthdays(response.data);
       setLoading(false);
     } catch (error) {
@@ -101,7 +101,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/birthdays', formData);
+      await axios.post('https://birthdayflutter-backend.onrender.com/api/birthdays', formData);
       fetchBirthdays();
       setFormData({
         name: '',
@@ -129,7 +129,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/birthdays/${id}`);
+      await axios.delete(`https://birthdayflutter-backend.onrender.com/api/birthdays/${id}`);
       fetchBirthdays();
       setSnackbar({
         open: true,
